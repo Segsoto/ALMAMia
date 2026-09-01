@@ -128,61 +128,69 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 
 .menu-toggle {
     display: none;
-    background: none;
-    border: none;
+    background: rgba(247, 246, 242, 0.8);
+    border: 1px solid var(--color-border);
     width: 48px;
     height: 48px;
     padding: 0;
     cursor: pointer;
     position: relative;
     z-index: 1200;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(54, 58, 46, 0.08);
 }
 
 .menu-toggle span {
     position: absolute;
-    left: 9px;
-    right: 9px;
-    height: 2px;
+    left: 12px;
+    right: 12px;
+    height: 2.5px;
     background: var(--color-oliva);
     border-radius: 999px;
     transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
 }
 
 .menu-toggle span:nth-child(1) { top: 14px; }
-.menu-toggle span:nth-child(2) { top: 23px; }
-.menu-toggle span:nth-child(3) { top: 32px; }
+.menu-toggle span:nth-child(2) { top: 22.5px; }
+.menu-toggle span:nth-child(3) { top: 31px; }
 
 .menu-toggle.is-open span:nth-child(1) {
-    top: 23px;
+    top: 22.5px;
     transform: rotate(45deg);
 }
 .menu-toggle.is-open span:nth-child(2) {
     opacity: 0;
 }
 .menu-toggle.is-open span:nth-child(3) {
-    top: 23px;
+    top: 22.5px;
     transform: rotate(-45deg);
 }
 
 .mobile-menu {
     position: fixed;
-    inset: 0 0 auto 0;
+    top: calc(var(--header-height) + 12px);
+    left: 4vw;
+    right: 4vw;
     background: rgba(247, 246, 242, 0.98);
     backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--color-border);
-    padding: 5rem 4vw 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    padding: 1.25rem 1.1rem 1.4rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    transform: translateY(-120%);
+    gap: 1.1rem;
+    transform: translateY(-16px);
     opacity: 0;
+    pointer-events: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
     z-index: 1100;
+    box-shadow: 0 20px 45px rgba(54, 58, 46, 0.12);
 }
 
 .mobile-menu.is-open {
     transform: translateY(0);
     opacity: 1;
+    pointer-events: auto;
 }
 
 .mobile-menu a {
@@ -193,11 +201,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 }
 
 .mobile-menu .nav-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: fit-content;
     margin-top: 0.5rem;
+    padding: 0.9rem 1.3rem;
+    background-color: var(--color-oliva);
+    color: var(--color-alabastro);
     font-family: var(--font-sans);
     font-size: 0.75rem;
+    border-radius: 2px;
+    text-decoration: none;
 }
 
 /* HERO SECTION */
